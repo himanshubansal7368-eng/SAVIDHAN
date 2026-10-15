@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102a43">
+    <title>Samvidhan AI | Constitution of India</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">
+            <span class="brand-icon">§</span>
+            <span>Samvidhan <strong>AI</strong></span>
+        </a>
+        <span class="status"><span class="status-dot"></span> Constitution Search</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow">YOUR CONSTITUTIONAL KNOWLEDGE ASSISTANT</div>
+            <h1>Understand the <span>Constitution of India.</span></h1>
+            <p>
+                Ask a question. Explore constitutional provisions. Discover the source documents behind your results.
+            </p>
+        </section>
+
+        <section class="search-panel">
+            <form id="question-form">
+                <label for="question">What would you like to know?</label>
+                <div class="input-row">
+                    <textarea id="question" rows="2" maxlength="1000" placeholder="e.g. What does Article 14 say about equality?" required></textarea>
+                    <button id="ask-button" type="submit">
+                        <span>Search</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span>Searches your collected constitutional documents</span>
+                    <span id="char-count">0 / 1000</span>
+                </div>
+            </form>
+
+            <div class="suggestions">
+                <span>Try asking:</span>
+                <button class="suggestion" data-question="What does Article 14 say about equality?">Article 14</button>
+                <button class="suggestion" data-question="Which provisions concern freedom of speech?">Freedom of speech</button>
+                <button class="suggestion" data-question="What are the powers of the President of India?">President</button>
+                <button class="suggestion" data-question="Which provisions deal with the judiciary?">Judiciary</button>
+            </div>
+        </section>
+
+        <section id="response-section" class="response-section" aria-live="polite">
+            <div id="welcome" class="welcome-card">
+                <div class="welcome-symbol">§</div>
+                <h2>Your search starts here</h2>
+                <p>Enter a question above to discover relevant constitutional documents.</p>
+                <p class="small-note">Results are retrieved from your dataset, not generated legal advice.</p>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <span>Searching constitutional documents…</span>
+            </div>
+
+            <div id="error" class="error hidden" role="alert"></div>
+
+            <div id="answer-area" class="hidden">
+                <div class="answer-heading">
+                    <div>
+                        <div class="eyebrow">SEARCH RESPONSE</div>
+                        <h2>Relevant provisions</h2>
+                    </div>
+                    <span id="result-count" class="result-count"></span>
+                </div>
+
+                <div id="answer-summary" class="answer-summary"></div>
+                <div id="results" class="results"></div>
+
+                <p class="disclaimer">
+                    Search results indicate textual similarity, not legal authority or guaranteed completeness. Verify the original source and current law before relying on a provision.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>Samvidhan AI · An educational machine-learning project</div>
+        <div>Built with HTML, CSS, JavaScript, Python and scikit-learn</div>
+    </footer>
+</body>
+
+</html>
